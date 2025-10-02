@@ -22,20 +22,31 @@ numberExample = 3;
 numberExample -= 1;
 console.log(numberExample);
 
+//Uppgift P6:
+
 const line1 = "green bottles hanging on the wall";
-const line2 = "And if one green bottle,should accidentally fall, there will be"
+const line2 = "And if one green bottle,should accidentally fall, there will be";
 let numberOfBottles = 10;
 
-while (numberOfBottles >= 1) {
-  console.log(numberOfBottles);
-  console.log(line1);
-  console.log(numberOfBottles);
-  console.log(line1);
-  console.log(line2)
+/*while (numberOfBottles >= 1) {
+  console.log(numberOfBottles + " " + line1 + ". " + numberOfBottles + " " + line1 + ". " + line2);
   numberOfBottles -= 1
+  }
+  */
+
+console.log(numberOfBottles + " " + line1 + ". " + numberOfBottles + " " + line1 + ". ");
+--numberOfBottles;
+
+
+for (let i = numberOfBottles; 0 < i; i--) {
+  if (i !== 0) {
+    console.log(numberOfBottles + " " + line1 + ". " + numberOfBottles + " " + line1 + ". ");
+    --numberOfBottles;
+  }
 }
-console.log(numberOfBottles);
-console.log(line1);
+
+
+
 
 
 let  gold = 50;
