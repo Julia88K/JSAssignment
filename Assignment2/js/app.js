@@ -60,10 +60,7 @@ function chooseEquipment(left, right, leftHandWeapon = "sword", rightHandWeapon 
 
 //Check where player should start
 function playerStart(age) {
-  if (age < 12) {
-    console.log("You are too young to start the adventure!");
-  }
-  else if (age > 12 && age < 18) {
+  if (age > 12 && age < 18) {
     console.log("You start in beginners forest.");
   }
   else {
@@ -94,3 +91,68 @@ function rollDice() {
 
 
 
+//Buying coffee
+
+const customerName = "Julia Kneppe";
+let customerAge = 11;
+let hasCash = true;
+let hasCard = true;
+
+function Main (name, age, cash, card) {
+  greeting(name);
+  checkAge(age);
+  ageCondition(age);
+  choosePayment(cash, card);
+  rollDice();
+}
+
+Main(customerName, customerAge, hasCash, hasCard)
+
+
+function greeting (name) {
+  console.log("Welcome " + name);
+}
+
+function checkAge (age) {
+  if (age < 12) {
+    console.log("You are too young to drink coffee, maybe try hot chocolate!");
+  }
+  else {
+    console.log("You can order coffee.");
+  }
+}
+
+function ageCondition(age){
+  if (age < 12) {
+    console.log("Here is your hot chocolate!");
+  }
+  else if (age >= 12 && age < 18) {
+    console.log("Here is your small latte!");
+  }
+  else {
+    console.log("Here is your large cappuccino!");
+  }
+}
+
+
+function choosePayment(cash, card) {
+  if (cash) {
+    console.log("You paid with cash.")
+  }
+  else if (card) {
+    console.log("You paid with card.")
+  }
+  else {
+    console.log("You have no way to pay.")
+  }
+}
+
+function rollDice() {
+  let x = Math.floor(Math.random() * 7);
+  if (x === 6) {
+    console.log("You get a free muffin with your coffee!");
+  }
+  else {
+    console.log("No extras today, enjoy your coffee!");
+  }
+}
