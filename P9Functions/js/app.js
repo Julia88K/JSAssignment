@@ -47,8 +47,8 @@ function beta(n,m) {
   return (n+m) / 2;
 }
 
-function gamma(en,två) {
-  return `Welcome ${en} ${två}!`
+function gamma(namn,efternamn) {
+  return `Welcome ${namn} ${efternamn}!`
 }
 
 console.log(gamma("Julia", "Kneppe"));
