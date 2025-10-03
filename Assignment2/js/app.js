@@ -1,93 +1,96 @@
 //Dungeon Game
 
 let playerName = "Julia";
-let playerAge = 13;
-let leftHand = false;
+let playerAge = 11;
+let leftHand = true;
 let rightHand = false;
 
 
-//Check players age
-function checkEligibility(playerAge) {
-  if (playerAge < 12) {
-    return "You are too young to start the adventure!"
-  }
-  else {
-    return "You are ready for the quest!"
+//Main-Function
+function main(name, age, left, right) {
+  greeting(name);
+  checkEligibility(age);
+  rightOrder(age, left, right);
+}
+
+main(playerName, playerAge, leftHand, rightHand)
+
+//next step after checking eligibility
+function rightOrder(age, left, right) {
+  if (playerAge >= 12) {
+    chooseEquipment(left, right);
+    playerStart(age);
+    rollDice();
+  } else {
+    console.log("See you again soon.");
   }
 }
 
-let getEligibility = checkEligibility(playerAge)
+function greeting(name) {
+  console.log("Welcome " + name + "!")
+}
+
+//Check players age
+function checkEligibility(age) {
+  if (age < 12) {
+    console.log("You are too young to start the adventure!")
+  }
+  else {
+    console.log("You are ready for the quest!")
+  }
+}
 
 
 //Check equipment
-function chooseEquipment(leftHand, rightHand, leftWeapon, rightWeapon) {
-  if (leftHand && rightHand) {
-    return "You are armed with a " + leftWeapon + " and a " + rightWeapon + "!"
+function chooseEquipment(left, right, leftHandWeapon = "sword", rightHandWeapon = "axe") {
+  if (left && right) {
+    console.log("You are armed with a " + leftHandWeapon + " and a " + rightHandWeapon + "!");
   }
-  else if (leftHand && !rightHand) {
-    return "You are armed with a " + leftWeapon + "!"
+  else if (left && !right) {
+    console.log("You are armed with a " + leftHandWeapon + "!");
   }
-  else if (!leftHand && rightHand) {
-    return "You are armed with a " + rightWeapon + "!"
+  else if (!left && right) {
+    console.log("You are armed with" + rightHandWeapon + "!");
   }
   else {
-    return "You are unarmed. Be careful!"
+    console.log("You are unarmed. Be careful!");
   }
 }
-
-let getEquipment = chooseEquipment(true, false, "sword", "axe")
 
 
 //Check where player should start
-function playerStart(playerAge) {
-  if (playerAge < 12) {
-    return "You are too young to start the adventure!"
+function playerStart(age) {
+  if (age < 12) {
+    console.log("You are too young to start the adventure!");
   }
-  else if (playerAge > 12 && playerAge < 18) {
-    return "You start in beginners forest."
-  }
-  else {
-    return "You start in a dark dungeon."
-  }
-}
- let getStart = playerStart(playerAge);
-
-
-function Output(playerName) {
-  console.log("Welcome " + playerName + "!")
-  console.log(getEligibility)
-  if (playerAge >= 12) {
-    console.log(getEquipment)
-    console.log(getStart)
+  else if (age > 12 && age < 18) {
+    console.log("You start in beginners forest.");
   }
   else {
-    return "See you again soon."
+    console.log("You start in a dark dungeon.");
   }
 }
-
-let getOutput = Output(playerName)
-console.log(getOutput)
 
 
 //Get your Opponent
 function rollDice() {
   let x = Math.floor(Math.random() * 6);
   if (x === 1) {
-    return "You rolled a 1. Nothing happens."
+    console.log("You rolled a 1. Nothing happens.");
   }
   else if (x === 2) {
-    return "You rolled a 2. Nothing happens."
+    console.log("You rolled a 2. Nothing happens.");
   }
   else if (x === 3) {
-    return "You rolled a 3. A small monster appears."
+    console.log("You rolled a 3. A small monster appears.");
   }
   else if (x === 4) {
-    return "You rolled a 4. A dragon appears."
+    console.log("You rolled a 4. A dragon appears.");
   }
   else {
-    return "You rolled a 5. A big monster appears."
+    console.log("You rolled a 5. A big monster appears.");
   }
 }
 
-let getFate = rollDice()
-console.log(getFate)
+
+
