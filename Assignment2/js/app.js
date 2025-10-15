@@ -156,3 +156,13 @@ function rollDice() {
     console.log("No extras today, enjoy your coffee!");
   }
 }
+
+
+
+let result;
+
+fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
+  .then(response => response.json())
+.then (data => result = data);
+
+result.meals.forEach(meal => console.log(meal.strMeal));
